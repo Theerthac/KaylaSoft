@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "921717970496",
+    "project_id": "authentication-crud-59048",
+    "storage_bucket": "authentication-crud-59048.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921717970496:android:fb62ae9ed8fb405bcd71a5",
+        "android_client_info": {
+          "package_name": "com.example.authentication_crud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATtAwrYN7wTqAwIG3ONG4Lr-MUOQl3RPs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

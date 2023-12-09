@@ -54,7 +54,7 @@ class _ForgotPageState extends State<ForgotPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 234, 207, 207),
+      backgroundColor: Color.fromARGB(255, 247, 244, 244),
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -62,16 +62,11 @@ class _ForgotPageState extends State<ForgotPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(
-                  Icons.lock,
-                  size: 100,
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Text("Lets create an account for you",
+            
+                Text("Reset your Password",
                     style: TextStyle(
-                      color: Colors.grey.shade700,
+                      fontSize: 20,
+                      color: Colors.grey.shade800,
                     )),
                 const SizedBox(
                   height: 25,
@@ -97,7 +92,7 @@ class _ForgotPageState extends State<ForgotPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                ButtonWidget(onTap: (){}, text: 'Sign Up'),
+                ButtonWidget(onTap: (){}, text: 'Save'),
                 const SizedBox(
                   height: 25,
                 ),
