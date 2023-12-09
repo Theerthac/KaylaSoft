@@ -54,83 +54,85 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 247, 244, 244),
+      backgroundColor: const Color.fromARGB(255, 247, 244, 244),
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 70,
-                ),
-                Text("Hello!",
-                    style: TextStyle(
-                        color: appcolor,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold)),
-                Text("Welcome back",
-                    style: TextStyle(
-                        color: appcolor,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold)),
-                SizedBox(
-                  height: 75,
-                ),
-                TextFieldWidget(
-                    controller: emailTextController,
-                    hintText: 'Email',
-                    obcureText: false),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextFieldWidget(
-                    controller: passwordTextController,
-                    hintText: 'Password',
-                    obcureText: true),
-                const SizedBox(
-                  height: 10,
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                ButtonWidget(
-                  onTap: signUp,
-                  text: 'Sign Up',
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Already have an account?",
-                      style: TextStyle(color: Colors.grey.shade700),
-                    ),
-                    const SizedBox(
-                      width: 4,
-                    ),
-                    GestureDetector(
-                      onTap: widget.onTap,
-                      child: const Text(
-                        "   Sign In",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 70,
+                  ),
+                  const Text("Hello!",
+                      style: TextStyle(
                           color: appcolor,
-                        ),
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold)),
+                  const Text("Welcome back",
+                      style: TextStyle(
+                          color: appcolor,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold)),
+                  const SizedBox(
+                    height: 75,
+                  ),
+                  TextFieldWidget(
+                      controller: emailTextController,
+                      hintText: 'Email',
+                      obcureText: false),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFieldWidget(
+                      controller: passwordTextController,
+                      hintText: 'Password',
+                      obcureText: true),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  ButtonWidget(
+                    onTap: signUp,
+                    text: 'Sign Up',
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Already have an account?",
+                        style: TextStyle(color: Colors.grey.shade700),
                       ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                Divider(
-                  color: Colors.grey,
-                  thickness: 1,
-                )
-              ],
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      GestureDetector(
+                        onTap: widget.onTap,
+                        child: const Text(
+                          "   Sign In",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: appcolor,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  const Divider(
+                    color: Colors.grey,
+                    thickness: 1,
+                  )
+                ],
+              ),
             ),
           ),
         ),

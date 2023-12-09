@@ -1,3 +1,4 @@
+import 'package:authentication_crud/helpers/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +18,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Chat App"),
-        backgroundColor: Colors.grey.shade900,
+        title: const Text("Hy"),
+        backgroundColor: appcolor,
         actions: [
           IconButton(
             onPressed: signOut,

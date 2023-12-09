@@ -1,6 +1,7 @@
 
 import 'package:authentication_crud/widgets/button.dart';
 import 'package:authentication_crud/widgets/textfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPage extends StatefulWidget {
@@ -16,45 +17,45 @@ class _ForgotPageState extends State<ForgotPage> {
   final passwordTextController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-  // void signUp() async {
-  //   showDialog(
-  //     context: context,
-  //     builder: (context) => const Center(
-  //       child: CircularProgressIndicator(),
-  //     ),
-  //   );
+  void signUp() async {
+    showDialog(
+      context: context,
+      builder: (context) => const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
 
-  //   if (passwordTextController.text != confirmPasswordController.text) {
-  //     Navigator.pop(context);
-  //     displayMessage("Passwords don't match!");
-  //     return;
-  //   }
+    if (passwordTextController.text != confirmPasswordController.text) {
+      Navigator.pop(context);
+      displayMessage("Passwords don't match!");
+      return;
+    }
 
-  //   try {
-  //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
-  //         email: emailTextController.text,
-  //         password: passwordTextController.text);
-  //     if (context.mounted) Navigator.pop(context);
-  //   } on FirebaseAuthException catch (e) {
-  //     // ignore: use_build_context_synchronously
-  //     Navigator.pop(context);
-  //     displayMessage(e.code);
-  //   }
-  // }
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailTextController.text,
+          password: passwordTextController.text);
+      if (context.mounted) Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      // ignore: use_build_context_synchronously
+      Navigator.pop(context);
+      displayMessage(e.code);
+    }
+  }
 
-  // void displayMessage(String message) {
-  //   showDialog(
-  //     context: context,
-  //     builder: (context) => AlertDialog(
-  //       title: Text(message),
-  //     ),
-  //   );
-  // }
+  void displayMessage(String message) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(message),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 247, 244, 244),
+      backgroundColor: const Color.fromARGB(255, 247, 244, 244),
       body: SafeArea(
         child: Center(
           child: Padding(
