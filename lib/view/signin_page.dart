@@ -1,4 +1,5 @@
 import 'package:authentication_crud/helpers/colors.dart';
+import 'package:authentication_crud/services/google_auth.dart';
 import 'package:authentication_crud/widgets/button.dart';
 import 'package:authentication_crud/widgets/textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -144,14 +145,8 @@ class _SignInPageState extends State<SignInPage> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                       // AuthMethods().signInWithGoogle(context);
-                      //    User? user = await _authService.signInWithGoogle();
-
-                      //  if (user != null) {
-                      //   print('User signed in: ${user.displayName}');
-                      //   } else {
-                      //  print('Google sign-in canceled or failed.');
-                      //    }
+                        AuthMethods().signInWithGoogle(context);
+                   
           
                       },
                       child: Image.asset(
@@ -167,7 +162,7 @@ class _SignInPageState extends State<SignInPage> {
                           Icons.phone_iphone_sharp,
                           size: 35,
                         ))
-                  ],
+                  ]     
                 ),
               ],
             ),

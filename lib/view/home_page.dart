@@ -25,6 +25,8 @@ class _HomePageState extends State<HomePage> {
     student.doc(docid).delete();
   }
 
+  RangeValues values =const RangeValues(0, 100);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,77 +62,80 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: StreamBuilder(
-      
-        stream: student.orderBy('name').snapshots(),
-        builder: (context, AsyncSnapshot snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-              itemCount: snapshot.data!.docs.length,
-              itemBuilder: (context, index) {
-                final DocumentSnapshot studentSnap = snapshot.data.docs[index];
-                return Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                    height: 80,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color.fromARGB(255, 236, 233, 233),
-                            blurRadius: 8,
-                            spreadRadius: 10,
-                          )
-                        ]),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            backgroundColor: appcolor,
-                            radius: 30,
-                            child: Text(studentSnap['profile'] ?? ''),
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+      body:
+          StreamBuilder(
+          
+            stream: student.orderBy('name').snapshots(),
+            builder: (context, AsyncSnapshot snapshot) {
+              if (snapshot.hasData) {
+                return ListView.builder(
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (context, index) {
+                    final DocumentSnapshot studentSnap = snapshot.data.docs[index];
+                    return Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Container(
+                        height: 80,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white,
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Color.fromARGB(255, 236, 233, 233),
+                                blurRadius: 8,
+                                spreadRadius: 10,
+                              )
+                            ]),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              studentSnap['name'],
-                              style: const TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: CircleAvatar(
+                                backgroundColor: appcolor,
+                                radius: 30,
+                                child: Text(studentSnap['profile'] ?? ''),
+                              ),
                             ),
-                            Text(studentSnap['age'].toString(),
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                )),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  studentSnap['name'],
+                                  style: const TextStyle(
+                                      fontSize: 18, fontWeight: FontWeight.bold),
+                                ),
+                                Text(studentSnap['age'].toString(),
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                    )),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                     
+                                IconButton(
+                                    onPressed: () {
+                                       deleteStudent(studentSnap.id);
+                                    },
+                                    icon: const Icon(
+                                      Icons.delete,
+                                      size: 30,
+                                    ))
+                              ],
+                            )
                           ],
                         ),
-                        Row(
-                          children: [
-                 
-                            IconButton(
-                                onPressed: () {
-                                   deleteStudent(studentSnap.id);
-                                },
-                                icon: const Icon(
-                                  Icons.delete,
-                                  size: 30,
-                                ))
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
+                      ),
+                    );
+                  },
                 );
-              },
-            );
-          }
-          return Container();
-        },
-      ),
+              }
+              return Container();
+            },
+          ),
+        
+      
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(right: 80),
         child: FloatingActionButton.extended(
