@@ -39,7 +39,7 @@ class AuthMethods {
       await DataBaseMethods()
           .addUser(userDetails.uid, userInfoMap)
           .then((value) {
-        //Navigator.pop(context);
+       
         Navigator.push(
             context,
             MaterialPageRoute(

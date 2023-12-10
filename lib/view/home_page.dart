@@ -57,11 +57,12 @@ class _HomePageState extends State<HomePage> {
             ),
             IconButton(
               onPressed: signOut,
-              icon: const Icon(Icons.logout),
+              icon: const Icon(Icons.logout,color: Colors.white,),
             ),
           ],
         ),
       ),
+      
       body:
           StreamBuilder(
             stream: student.orderBy('name').snapshots(),
@@ -135,19 +136,22 @@ class _HomePageState extends State<HomePage> {
           ),
         
       
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(right: 70),
-        child: FloatingActionButton.extended(
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const AddScreen(),
-            ));
-          },
-          icon: const Icon(Icons.add),
-          label: const Text('Add Student'),
-          backgroundColor: appcolor,
-        ),
-      ),
+     floatingActionButton: Padding(
+  padding: const EdgeInsets.only(right: 100),
+  child: FloatingActionButton.extended(
+    onPressed: () {
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => const AddScreen(),
+      ));
+    },
+    icon: const Icon(Icons.add, color: Colors.white), 
+    label: const Text(
+      'Add Student',
+      style: TextStyle(color: Colors.white),
+    ),
+    backgroundColor: appcolor,
+  ),
+),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }

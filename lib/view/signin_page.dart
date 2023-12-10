@@ -1,10 +1,10 @@
 import 'package:authentication_crud/helpers/colors.dart';
 import 'package:authentication_crud/services/google_auth.dart';
+import 'package:authentication_crud/view/otp.dart';
 import 'package:authentication_crud/widgets/button.dart';
 import 'package:authentication_crud/widgets/textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 
 class SignInPage extends StatefulWidget {
   final Function()? onTap;
@@ -46,8 +46,6 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
-
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -141,29 +139,30 @@ class _SignInPageState extends State<SignInPage> {
                   height: 20,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        AuthMethods().signInWithGoogle(context);
-                   
-          
-                      },
-                      child: Image.asset(
-                        "assets/googleimg-removebg-preview.png",
-                        height: 55,
-                        width: 55,
-                        fit: BoxFit.cover,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          AuthMethods().signInWithGoogle(context);
+                        },
+                        child: Image.asset(
+                          "assets/googleimg-removebg-preview.png",
+                          height: 55,
+                          width: 55,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.phone_iphone_sharp,
-                          size: 35,
-                        ))
-                  ]     
-                ),
+                      IconButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const OtpScreen(),
+                            ));
+                          },
+                          icon: const Icon(
+                            Icons.phone_iphone_sharp,
+                            size: 35,
+                          ))
+                    ]),
               ],
             ),
           ),

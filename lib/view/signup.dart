@@ -24,11 +24,7 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
     );
 
-    // if (passwordTextController.text != confirmPasswordController.text) {
-    //   Navigator.pop(context);
-    //   displayMessage("Passwords don't match!");
-    //   return;
-    // }
+ 
 
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
