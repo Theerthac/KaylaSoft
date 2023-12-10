@@ -39,6 +39,7 @@ dependencies:
   firebase_auth: ^4.15.2
   cloud_firestore: ^4.13.5
   google_sign_in: ^6.1.6
+  image_picker: ^1.0.4
 
 dev_dependencies:
   flutter_test:
@@ -65,7 +66,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - assets/googleimg-removebg-preview.png
-    # - images/a_dot_ham.jpeg
+   - assets/person img.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

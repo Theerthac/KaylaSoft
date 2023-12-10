@@ -4,6 +4,7 @@ import 'package:authentication_crud/widgets/textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+
 class SignInPage extends StatefulWidget {
   final Function()? onTap;
   const SignInPage({super.key, this.onTap});
@@ -44,6 +45,8 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,23 +136,37 @@ class _SignInPageState extends State<SignInPage> {
                   color: Colors.grey,
                   thickness: 1,
                 ),
-
-                SizedBox(height: 20,),
+                const SizedBox(
+                  height: 20,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      child: Image.asset("assets/googleimg-removebg-preview.png",
-                      height: 55,
-                      width: 55,
-                      fit: BoxFit.cover,
+                      onTap: () {
+                       // AuthMethods().signInWithGoogle(context);
+                      //    User? user = await _authService.signInWithGoogle();
+
+                      //  if (user != null) {
+                      //   print('User signed in: ${user.displayName}');
+                      //   } else {
+                      //  print('Google sign-in canceled or failed.');
+                      //    }
+          
+                      },
+                      child: Image.asset(
+                        "assets/googleimg-removebg-preview.png",
+                        height: 55,
+                        width: 55,
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    IconButton(onPressed: (){
-
-                    }, 
-                    icon: Icon(Icons.phone_iphone_sharp,size: 35,))
-                    
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.phone_iphone_sharp,
+                          size: 35,
+                        ))
                   ],
                 ),
               ],
