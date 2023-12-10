@@ -64,7 +64,6 @@ class _HomePageState extends State<HomePage> {
       ),
       body:
           StreamBuilder(
-          
             stream: student.orderBy('name').snapshots(),
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.hasData) {
@@ -137,7 +136,7 @@ class _HomePageState extends State<HomePage> {
         
       
       floatingActionButton: Padding(
-        padding: const EdgeInsets.only(right: 80),
+        padding: const EdgeInsets.only(right: 70),
         child: FloatingActionButton.extended(
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
